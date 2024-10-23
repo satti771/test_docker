@@ -3,9 +3,9 @@ services:
   app:
     build: .
     ports:
-      - '3000:3000'
+      - '3002:3002'
     volumes:
       - .:/app
       - /app/node_modules
     environment:
-      - NODE_ENV=development
+      - NODE_ENV=testing
