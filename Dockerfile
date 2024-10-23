@@ -16,8 +16,12 @@ COPY . .
 # Build the Nest.js application
 RUN npm run build
 
+# Copy environment-specific .env file
+ARG ENVIRONMENT
+COPY .env.$ENVIRONMENT .env
+
 # Expose the port the app runs on
-EXPOSE 3000
+EXPOSE 3003
 
 # Define the command to run the app
 CMD ["npm", "run", "start:prod"]
