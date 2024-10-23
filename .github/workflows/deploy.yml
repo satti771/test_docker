@@ -27,8 +27,8 @@ jobs:
 
       - name: Build and Push Docker Image
         run: |
-          docker build -t satti771/glowante:${{ github.ref_name }} .
-          docker push satti771/glowante:${{ github.ref_name }}
+          docker build -t satti507/glowante:${{ github.ref_name }} .
+          docker push satti507/glowante:${{ github.ref_name }}
 
       - name: SSH and Deploy on EC2
         uses: appleboy/ssh-action@v0.1.3
@@ -37,7 +37,7 @@ jobs:
           username: ec2-user
           key: ${{ secrets.AWS_EC2_KEY }}
           script: |
-            docker pull satti771/glowante:${{ github.ref_name }}
+            docker pull satti507/glowante:${{ github.ref_name }}
             docker stop glowante || true
             docker rm glowante || true
-            docker run -d -p 3000:3000 --name glowante satti771/glowante:${{ github.ref_name }}
+            docker run -d -p 3002:3000 --name glowante satti507/glowante:${{ github.ref_name }}
