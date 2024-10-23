@@ -40,4 +40,4 @@ jobs:
             docker pull satti507/glowante:${{ github.ref_name }}
             docker stop glowante || true
             docker rm glowante || true
-            docker run -d -p 3000:3000 --name glowante satti507/glowante:${{ github.ref_name }}
+            docker run -d -p 3001:3000 --name glowante satti507/glowante:${{ github.ref_name }}
